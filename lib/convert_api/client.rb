@@ -32,7 +32,7 @@ module ConvertApi
       handle_response do
         request = Net::HTTP::Get.new(request_uri(path, params), DEFAULT_HEADERS)
 
-        http(options).request(request)
+        http(**options).request(request)
       end
     end
 
@@ -41,7 +41,7 @@ module ConvertApi
         request = Net::HTTP::Post.new(request_uri(path), DEFAULT_HEADERS)
         request.form_data = build_form_data(params)
 
-        http(options).request(request)
+        http(**options).request(request)
       end
     end
 
